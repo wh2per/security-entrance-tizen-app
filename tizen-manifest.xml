@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="5.0" package="org.example.smart-security-entrance" version="1.0.0">
+    <profile name="iot-headed" />
+    <service-application appid="org.example.smart-security-entrance" exec="smart-security-entrance" type="capp" multiple="false" taskmanage="false" nodisplay="true">
+        <icon>smart-security-entrance.png</icon>
+        <label>smart-security-entrance</label>
+	</service-application>
+</manifest>
