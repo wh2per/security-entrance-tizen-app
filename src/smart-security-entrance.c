@@ -1,6 +1,14 @@
 #include <tizen.h>
 #include <service_app.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <Ecore.h>
+
+#include "log.h"
 #include "smart-security-entrance.h"
+#include "resource_infrared_motion_sensor.h"
+#include "resource_led.h"
 
 bool service_app_create(void *data)
 {
