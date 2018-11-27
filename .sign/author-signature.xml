@@ -4,7 +4,7 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="bin%2Fsecurity-entrance-tizen-app">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>AvAwrFkc/If5A6BAUXLeOS6cGzD0tVzFdXOY26iTDho=</DigestValue>
+<DigestValue>t+FN/6+83KM+Mj7lK0gBiNvDOnN5+HozgHwBkgMjrCs=</DigestValue>
 </Reference>
 <Reference URI="shared%2Fres%2Fmaster.json">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -31,9 +31,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-K3C4yCJGtUOueOMCBPqV8j3BAtOVkdLSgpTI1WPLI5ZDh/2kb3m7a10E9bJiodZJdXYBo/ay3vxB
-LbhV9/AKFv/PDgoTGV71VDPHTQ/P8jMAdxEWhfNvTvXBJnH1yQEucOAzbah/d0j09QVMkRDFKZ3L
-7VQAk5iX1GEK1z3dKIs=
+lYng0o7uaekvm0ap8OFvX+b3qKquGEar+xCyAFGTgUG4H4jo9hCfus4yn3/Yef8PCPWiN5dqWTcv
+NovCmr2Km6ZnXmvIoacCMcSC0+TiAxIbV0+ugBdcPUzCCi+ICRPe/sQprccg0SrITY4+fze+XLgF
+3FR+W4MjzvBr2CNBTU0=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

@@ -19,7 +19,7 @@
 
 
 // Duration for a timer
-#define TIMER_GATHER_INTERVAL (2.0f)
+#define TIMER_GATHER_INTERVAL (1.0f)		// PIR 모으는 시간
 
 // Motion sensor info
 #define SENSOR_MOTION_GPIO_NUMBER (130)
@@ -33,7 +33,7 @@
 #define SERVO_MOTOR_DUTY_CYCLE_COUNTER_CLOCKWISE 1.0
 #define SERVO_MOTOR_DUTY_CYCLE_CLOCKWISE 2.0
 
-#define SENSOR_GATHER_INTERVAL (2.0f)
+#define SENSOR_GATHER_INTERVAL (2.0f)		// 모터 시간
 
 
 typedef struct app_data_s {
@@ -67,10 +67,6 @@ static int _set_led(int on)
 		return -1;
 	}
 
-	// 보안카드가 있다면
-	if(on==1)
-		return 1;
-
 	return 0;
 }
 
@@ -87,20 +83,20 @@ static Eina_Bool _motion_to_led(void *user_data)
 	}
 
 	ret = _set_led((int)value);
+
+	///////////////////////////
+	//	app_data에 pir_detect 변수 추가해서 (int)value로 설정
+	////////////////////////
 	if (ret == -1) {
 		_E("cannot write led data");
 		return ECORE_CALLBACK_CANCEL;
-	}else if(ret == 1){
-		ad->door = 1;
-	}else {
-		ad->door = 0;
 	}
 	_I("LED : %u", value);
 
 	return ECORE_CALLBACK_RENEW;
 }
 
-static int _set_servo_motor(int on)
+static int _set_servo_motor(int on, int door)
 {
 	double duty_cycle = 0;
 	int ret = 0;
@@ -130,13 +126,13 @@ static Eina_Bool __start_servo_motor(void *data){
 	}
 
 	_I("door : %d", ad->door);
-	if(ad->door==1){
+	if(ad->door==1){					// 이미지 분석 후 통과면 ad->door = 1로 바꾼것
 		on = 1;		// 열기
 	}else {
 		on = 0;		// 닫기
 	}
 
-	ret = _set_servo_motor(on);
+	ret = _set_servo_motor(on,ad->door);
 	if (ret != 0) {
 		_E("cannot set servo motor");
 		return ECORE_CALLBACK_RENEW;
@@ -465,7 +461,7 @@ int main(int argc, char *argv[])
 	service_app_lifecycle_callback_s event_callback;
 
 	ad = calloc(1, sizeof(app_data));
-	ad->door = 1;		// 보안카드 없음으로 초기화
+	ad->door = 0;		// 보안카드 없음으로 초기화
 	retv_if(!ad, -1);
 
 	g_ad = ad;
