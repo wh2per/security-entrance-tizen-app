@@ -1,5 +1,5 @@
-#ifndef __smart-security-entrance_H__
-#define __smart-security-entrance_H__
+#ifndef __security_entrance_tizen_app_H__
+#define __security_entrance_tizen_app_H__
 
 #include <dlog.h>
 
