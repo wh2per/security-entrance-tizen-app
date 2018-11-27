@@ -4,7 +4,15 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="bin%2Fsecurity-entrance-tizen-app">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>CG3spNcxhaxcxvl7SxsvTvRXUnF1gozridIWa5J54mU=</DigestValue>
+<DigestValue>AvAwrFkc/If5A6BAUXLeOS6cGzD0tVzFdXOY26iTDho=</DigestValue>
+</Reference>
+<Reference URI="shared%2Fres%2Fmaster.json">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>brjAUYfE22hV3QN+u1vztTW5m/ur2+7kT+eCaU5vP/s=</DigestValue>
+</Reference>
+<Reference URI="shared%2Fres%2Fresource.json">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>843WEfBDYFgiHNyPonNZ35CDC0J230Hu55hKBYIvZUQ=</DigestValue>
 </Reference>
 <Reference URI="shared%2Fres%2Fsmart-security-entrance.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -12,7 +20,7 @@
 </Reference>
 <Reference URI="tizen-manifest.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>LqxB1ZHaf43RkbdbFK7CdOqiJtycVMggnJdXLOr6ISM=</DigestValue>
+<DigestValue>vOAehxa3vmSxt3pO8/Dvg0204+BN+5A+yaLvm0oReMg=</DigestValue>
 </Reference>
 <Reference URI="#prop">
 <Transforms>
@@ -23,9 +31,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-WNnO99aO4H2QJYBhLpZRGaHZR2WqAKhLzGP6o458humCImrjEHQSSQ1gC8/G7uqbGlDSQK5zakYh
-Vnykn6qBjbSs8wtuvfyUd9PnbdjAJl+I8HdPb8IV5/c8v7TS3sitGHQVstliAJ5tWm9xnciGaHob
-WnlcEttBCAXBFLuY50w=
+K3C4yCJGtUOueOMCBPqV8j3BAtOVkdLSgpTI1WPLI5ZDh/2kb3m7a10E9bJiodZJdXYBo/ay3vxB
+LbhV9/AKFv/PDgoTGV71VDPHTQ/P8jMAdxEWhfNvTvXBJnH1yQEucOAzbah/d0j09QVMkRDFKZ3L
+7VQAk5iX1GEK1z3dKIs=
 </SignatureValue>
 <KeyInfo>
 <X509Data>
