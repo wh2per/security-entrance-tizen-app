@@ -11,12 +11,20 @@
 #include <security-entrance-tizen-app.h>
 
 #include "log.h"
+#include "motion.h"
 #include "resource_infrared_motion_sensor.h"
 #include "resource_led.h"
 #include "resource_servo_motor.h"
 #include "resource_camera.h"
 #include "controller_image.h"
+#include "controller_mv.h"
 
+#define CAMERA_MOVE_INTERVAL_MS 450
+#define THRESHOLD_VALID_EVENT_COUNT 2
+#define VALID_EVENT_INTERVAL_MS 200
+
+#define IMAGE_FILE_PREFIX "CAM_"
+#define EVENT_INTERVAL_SECOND 0.5f
 
 // Duration for a timer
 #define TIMER_GATHER_INTERVAL (1.0f)		// PIR 모으는 시간
@@ -35,6 +43,8 @@
 
 #define SENSOR_GATHER_INTERVAL (2.0f)		// 모터 시간
 
+#define APP_CALLBACK_KEY "security"
+
 
 typedef struct app_data_s {
 	Ecore_Timer *getter_timer_PL;		// PIR과 LED용 app_data : 개더링 타임
@@ -42,6 +52,16 @@ typedef struct app_data_s {
 	int door;						// 모터용 app_data : 보안카드가 있으면 1, 없으면 0
 
 	// 카메라용 app_data
+	double current_servo_x;
+	double current_servo_y;
+	int motion_state;
+
+	long long int last_moved_time;
+	long long int last_valid_event_time;
+	int valid_vision_result_x_sum;
+	int valid_vision_result_y_sum;
+	int valid_event_count;
+
 	unsigned int latest_image_width;
 	unsigned int latest_image_height;
 	char *latest_image_info;
@@ -57,6 +77,27 @@ typedef struct app_data_s {
 
 static app_data *g_ad = NULL;
 
+void __device_interfaces_fini(void)
+{
+	motion_finalize();
+}
+
+int __device_interfaces_init(app_data *ad)
+{
+	retv_if(!ad, -1);
+
+	if (motion_initialize()) {
+		_E("failed to motion_initialize()");
+		goto ERROR;
+	}
+
+	return 0;
+
+ERROR :
+	__device_interfaces_fini();
+	return -1;
+}
+
 static int _set_led(int on)
 {
 	int ret = 0;
@@ -70,11 +111,23 @@ static int _set_led(int on)
 	return 0;
 }
 
+static long long int __get_monotonic_ms(void)
+{
+	long long int ret_time = 0;
+	struct timespec time_s;
+
+	if (0 == clock_gettime(CLOCK_MONOTONIC, &time_s))
+		ret_time = time_s.tv_sec* 1000 + time_s.tv_nsec / 1000000;
+	else
+		_E("Failed to get time");
+
+	return ret_time;
+}
+
 static Eina_Bool _motion_to_led(void *user_data)
 {
 	int ret = 0;
 	uint32_t value = 0;
-	app_data *ad = user_data;
 
 	ret = resource_read_infrared_motion_sensor(SENSOR_MOTION_GPIO_NUMBER, &value);
 	if (ret != 0) {
@@ -323,6 +376,9 @@ static void __preview_image_buffer_created_cb(void *data)
 
 	free(image_buffer);
 
+	motion_state_set(ad->motion_state, APP_CALLBACK_KEY);
+	ad->motion_state = 0;
+
 	pthread_mutex_lock(&ad->mutex);
 	if (!ad->image_writter_thread) {
 		ad->image_writter_thread = ecore_thread_run(__thread_write_image_file, __thread_end_cb, __thread_cancel_cb, ad);
@@ -338,6 +394,96 @@ FREE_ALL_BUFFER:
 	free(image_buffer);
 }
 
+static void __set_result_info(int result[], int result_count, app_data *ad, int image_result_type)
+{
+	char image_info[IMAGE_INFO_MAX + 1] = {'\0', };
+	char *current_position;
+	int current_index = 0;
+	int string_count = 0;
+	int i = 0;
+	char *latest_image_info = NULL;
+	char *info = NULL;
+
+	current_position = image_info;
+
+	current_position += snprintf(current_position, IMAGE_INFO_MAX, "%02d", image_result_type);
+	string_count += 2;
+
+	current_position += snprintf(current_position, IMAGE_INFO_MAX - string_count, "%02d", result_count);
+	string_count += 2;
+
+	for (i = 0; i < result_count; i++) {
+		current_index = i * 4;
+		if (IMAGE_INFO_MAX - string_count < 8)
+			break;
+
+		current_position += snprintf(current_position, IMAGE_INFO_MAX - string_count, "%02d%02d%02d%02d"
+			, result[current_index], result[current_index + 1], result[current_index + 2], result[current_index + 3]);
+		string_count += 8;
+	}
+
+	latest_image_info = strdup(image_info);
+	pthread_mutex_lock(&ad->mutex);
+	info = ad->latest_image_info;
+	ad->latest_image_info = latest_image_info;
+	pthread_mutex_unlock(&ad->mutex);
+	free(info);
+}
+
+static void __mv_detection_event_cb(int horizontal, int vertical, int result[], int result_count, void *user_data)
+{
+	app_data *ad = (app_data *)user_data;
+	long long int now = __get_monotonic_ms();
+
+	ad->motion_state = 1;
+
+	if (now < ad->last_moved_time + CAMERA_MOVE_INTERVAL_MS) {
+		ad->valid_event_count = 0;
+		pthread_mutex_lock(&ad->mutex);
+		ad->latest_image_type = 0; // 0: image during camera repositioning
+		pthread_mutex_unlock(&ad->mutex);
+		__set_result_info(result, result_count, ad, 0);
+		return;
+	}
+
+	if (now < ad->last_valid_event_time + VALID_EVENT_INTERVAL_MS) {
+		ad->valid_event_count++;
+	} else {
+		ad->valid_event_count = 1;
+	}
+
+	ad->last_valid_event_time = now;
+
+	if (ad->valid_event_count < THRESHOLD_VALID_EVENT_COUNT) {
+		ad->valid_vision_result_x_sum += horizontal;
+		ad->valid_vision_result_y_sum += vertical;
+		pthread_mutex_lock(&ad->mutex);
+		ad->latest_image_type = 1; // 1: single valid image but not completed
+		pthread_mutex_unlock(&ad->mutex);
+		__set_result_info(result, result_count, ad, 1);
+		return;
+	}
+
+	ad->valid_event_count = 0;
+	ad->valid_vision_result_x_sum += horizontal;
+	ad->valid_vision_result_y_sum += vertical;
+
+	int x = ad->valid_vision_result_x_sum / THRESHOLD_VALID_EVENT_COUNT;
+	int y = ad->valid_vision_result_y_sum / THRESHOLD_VALID_EVENT_COUNT;
+
+	x = 10 * x / (IMAGE_WIDTH / 2);
+	y = 10 * y / (IMAGE_HEIGHT / 2);
+
+	ad->last_moved_time = now;
+
+	ad->valid_vision_result_x_sum = 0;
+	ad->valid_vision_result_y_sum = 0;
+	pthread_mutex_lock(&ad->mutex);
+	ad->latest_image_type = 2; // 2: fully validated image
+	pthread_mutex_unlock(&ad->mutex);
+
+	__set_result_info(result, result_count, ad, 2);
+}
 
 
 static bool service_app_create(void *user_data)
@@ -361,8 +507,13 @@ static bool service_app_create(void *user_data)
 
 	pthread_mutex_init(&ad->mutex, NULL);
 
-//	if (__device_interfaces_init(ad))
-//		goto ERROR;
+	if (__device_interfaces_init(ad))
+		goto ERROR;
+
+	if (controller_mv_set_movement_detection_event_cb(__mv_detection_event_cb, user_data) == -1) {
+		_E("Failed to set movement detection event callback");
+		goto ERROR;
+	}
 
 	if (resource_camera_init(__preview_image_buffer_created_cb, ad) == -1) {
 		_E("Failed to init camera");
@@ -386,6 +537,7 @@ static bool service_app_create(void *user_data)
 
 	return false;
 }
+
 
 static void service_app_control(app_control_h app_control, void *user_data)
 {
