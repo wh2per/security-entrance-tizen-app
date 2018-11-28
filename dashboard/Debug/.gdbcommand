@@ -1,0 +1,6 @@
+set sysroot /Users/NicTaehongKim/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.0/iot-headless/rootstraps/iot-headless-5.0-device.core
+set debug-file-directory /Users/NicTaehongKim/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.0/iot-headless/rootstraps/iot-headless-5.0-device.core/usr/lib/debug
+set solib-search-path /Users/NicTaehongKim/Desktop/Nic/Computer/MiniHackerton2018/test/smart-blackbox/smart-surveillance-camera/dashboard/Debug
+dir /Users/NicTaehongKim/tizen-studio/tools/smart-build-interface/../../platforms/tizen-5.0/iot-headless/rootstraps/iot-headless-5.0-device.core/usr/src/debug
+file "/Users/NicTaehongKim/Desktop/Nic/Computer/MiniHackerton2018/test/smart-blackbox/smart-surveillance-camera/dashboard/Debug/dashboard"
+sharedlibrary

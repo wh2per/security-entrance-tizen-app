@@ -1,0 +1,14 @@
+# ninja log v5
+0	304	0	src/dashboard.o	7b0d09ef74ab914f
+305	522	0	dashboard	5c2708dd597f2e18
+1	195	0	src/dashboard.o	8b119864d4416433
+196	540	0	dashboard	152e6981935a1b17
+1	201	0	src/dashboard.o	8b119864d4416433
+201	543	0	dashboard	152e6981935a1b17
+2	465	0	src/dashboard.o	8b119864d4416433
+466	1342	0	dashboard	152e6981935a1b17
+0	38	0	clean_cov	b3de405e02eb7ca8
+38	59	0	clean_sa	46ab9549445ac981
+59	78	0	clean	d59b6dac04fa9b5d
+1	191	0	src/dashboard.o	8b119864d4416433
+191	573	0	dashboard	152e6981935a1b17

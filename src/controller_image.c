@@ -19,16 +19,14 @@
 #include <stdio.h>
 #include <tizen.h>
 #include <image_util.h>
+#include <glib.h>
+#include <app_common.h>
+#include <mv_image.h>
+#include <image_util.h>
+
 #include "log.h"
 #include "exif.h"
 #include "security-entrance-tizen-app.h"
-#include <glib.h>
-#include <app_common.h>
-
-#include <mv_image.h>
-
-/* Image decoding for image recognition */
-#include <image_util.h>
 
 static image_util_encode_h encode_h = NULL;
 static image_util_decode_h decode_h = NULL;
@@ -138,6 +136,7 @@ _on_image_recognized_cb(mv_source_h source, mv_engine_config_h engine_config,
     for (object_num = 0; object_num < number_of_objects; ++object_num) {
         if (locations[object_num]) {
             imagedata.ad->door = 1;
+
             int recognized_label = 0;
             mv_image_object_get_label(image_objects[object_num], &recognized_label);
             _E("image label [%d] on location: (%d,%d) -> (%d,%d) -> (%d,%d) -> (%d,%d)\n",

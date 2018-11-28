@@ -1,0 +1,69 @@
+.wholeContainer {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 5px;
+    background-color: #ececec;
+}
+
+.mainContainer {
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-top: 40px;
+}
+
+.titleText {
+    text-align: center;
+    background: #3f51b5;
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.canvasFrame {
+    display: block;
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    background-color: black;
+    padding: 8px;
+}
+
+.canvasDisplay {
+	display: block;
+    margin: auto auto;
+    width: 99%;
+    height: 99%;
+}
+
+.hideCanvas {
+	height: 0px;
+	width: 0px;
+}
+
+.projectName {
+	font: 28px 'arial';
+}
+
+.outsideWrapper{ 
+    width:540px; height:405px; 
+    margin:20px 60px; 
+    border: 8px solid black;}
+.insideWrapper{
+    width:100%; height:100%; 
+    position:relative;}
+.coveredImage{ 
+    width:100%; height:100%; 
+    position:absolute; top:0px; left:0px;
+}
+.coveringCanvas{ 
+    width:100%; height:100%; 
+    position:absolute; top:0px; left:0px;
+    background-color: rgba(255,0,0,.1);
+}
+
+li {
+	padding-left: 20px;
+	padding-bottom: 5px;
+}
+
+

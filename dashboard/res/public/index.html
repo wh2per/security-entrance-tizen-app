@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='ko'>
+    <head>
+        <meta charset="UTF-8">
+        <title>Tizen-WebApp</title>
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="wholeContainer">
+            <h1 class="titleText" >Smart Gate Keeper</h1>
+            	<div id="camera-container">
+	            <div class="canvasFrame">
+	                <canvas id="camera-view-canvas" class="hideCanvas"></canvas>
+	                <img id="camera-view" class="canvasDisplay"/>
+	            </div>
+            </div>
+            
+            <div id="main-container" class="mainContainer">
+	        		<div id="text-container">
+		            <h2 id="project-title1" class="projectName" ><b>[Tizen IoT Team #5]</b></h2>
+		            <h2 id="project-title2">사물 인식 기반 문지기</h2>
+		            <h4 id="project-title3">Team Members: 권오승, 김준비, 김태홍</h4>
+		            <h4 id="project-title3"><br>Description</h4>
+		            <div id="project-main-text">
+		                <ul>
+		                    <li class="step1">Captures images continuously with a USB camera</li>
+		                    <li class="step2">Detects a valid object in the images</li>
+		                    <li class="step3">Controls servomotors based on image analysis</li>
+		                    <li class="step4">Sends the images to connected web clients</li>
+		                    <li class="step5">Displays a live view of images in each web client</li>
+		                </ul>
+		            </div>
+		            <br><br><br>
+		            <h5>github: https://github.com/KimReady/security-entrance-tizen-app.git</h5>
+		            
+	        		</div>
+	        	</div>
+        </div>
+        <p id="demo"></p>
+        	<p id="fps"></p>
+        <script src="js/app.js"></script>
+    </body>
+</html>

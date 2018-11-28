@@ -11,12 +11,12 @@
 #include <security-entrance-tizen-app.h>
 
 #include "log.h"
+#include "exif.h"
 #include "resource_infrared_motion_sensor.h"
 #include "resource_led.h"
 #include "resource_servo_motor.h"
 #include "resource_camera.h"
 #include "controller_image.h"
-#include "controller_mv.h"
 
 #define CAMERA_MOVE_INTERVAL_MS 450
 #define THRESHOLD_VALID_EVENT_COUNT 2
