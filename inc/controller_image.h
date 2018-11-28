@@ -17,7 +17,12 @@
 #ifndef __CONTROLLER_IMAGE_H__
 #define __CONTROLLER_IMAGE_H__
 
+#include "security-entrance-tizen-app.h"
+
 void controller_image_initialize(void);
+void mv_image_init(struct app_data_s *user_data);
+void mv_image_destroy(void);
+int mv_image_detect(void);
 void controller_image_finalize(void);
 int controller_image_save_image_file(const char *path,
 	unsigned int width, unsigned int height, const unsigned char *buffer,

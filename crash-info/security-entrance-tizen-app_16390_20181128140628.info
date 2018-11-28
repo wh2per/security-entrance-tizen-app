@@ -1,0 +1,160 @@
+Executable File Path: /opt/usr/globalapps/org.example.security-entrance-tizen-app/bin/security-entrance-tizen-app
+Signal: 6
+      (SIGABRT)
+
+Register Information
+r0   = 0x00000000, r1   = 0xb3d1f370
+r2   = 0x00000000, r3   = 0x00000008
+r4   = 0x00000006, r5   = 0xb3d20070
+r6   = 0xb6c91078, r7   = 0x000000af
+r8   = 0x00000001, r9   = 0xb6c90cb0
+r10  = 0xb664e2a0, fp   = 0x00000000
+ip   = 0x00000000, sp   = 0xb3d1f370
+lr   = 0xb3d1f370, pc   = 0xb6b85094
+cpsr = 0x000b0010
+
+Memory information
+MemTotal:   991656 KB
+MemFree:	   687768 KB
+Buffers:	    20064 KB
+Cached:	    119448 KB
+VmPeak:	    107624 KB
+VmSize:	     98964 KB
+VmLck:	          0 KB
+VmPin:	          0 KB
+VmHWM:	      20548 KB
+VmRSS:	      17616 KB
+VmData:	     64928 KB
+VmStk:	        136 KB
+VmExe:	         40 KB
+VmLib:	      23588 KB
+VmPTE:	         66 KB
+VmSwap:	         0 KB
+
+Threads Information
+Threads: 4
+PID = 16390 TID = 29799
+16390 16422 16423 29799 
+
+Maps Information
+        7f5be000         7f5c8000 r-xp /opt/usr/globalapps/org.example.security-entrance-tizen-app/bin/security-entrance-tizen-app
+        7f5d8000         7f63c000 rw-p [heap]
+        b2406000         b2407000 r-xp /usr/lib/libgthread-2.0.so.0.5200.2
+        b50cf000         b50d9000 r-xp /usr/lib/libnss_files-2.24.so
+        b50ea000         b50f5000 r-xp /usr/lib/libnss_nis-2.24.so
+        b5106000         b5118000 r-xp /usr/lib/libnsl-2.24.so
+        b512b000         b5132000 r-xp /usr/lib/libnss_compat-2.24.so
+        b515d000         b5160000 r-xp /usr/lib/libcap.so.2.24
+        b5170000         b51cd000 r-xp /usr/lib/libsystemd.so.0.16.0
+        b51df000         b51e2000 r-xp /usr/lib/libuuid.so.1.3.0
+        b51f2000         b5405000 r-xp /usr/lib/libopencv_dnn.so.3.4.1
+        b5423000         b5451000 r-xp /usr/lib/libopencv_flann.so.3.4.1
+        b5464000         b54b9000 r-xp /usr/lib/libtiff.so.5.3.0
+        b54cb000         b54d0000 r-xp /usr/lib/libsmack.so.1.3.1
+        b54e1000         b54ef000 r-xp /usr/lib/libsensord-shared.so
+        b5500000         b552b000 r-xp /usr/lib/libblkid.so.1.1.0
+        b553f000         b5578000 r-xp /usr/lib/libmount.so.1.1.0
+        b558c000         b55a5000 r-xp /usr/lib/liblzma.so.5.2.3
+        b55b5000         b55be000 r-xp /usr/lib/libbuxton2.so.1.3.8
+        b55cf000         b579e000 r-xp /usr/lib/libopencv_tracking.so.3.4.1
+        b57b3000         b57fe000 r-xp /usr/lib/libopencv_face.so.3.4.1
+        b580f000         b5841000 r-xp /usr/lib/libopencv_objdetect.so.3.4.1
+        b5852000         b58b5000 r-xp /usr/lib/libopencv_features2d.so.3.4.1
+        b58c9000         b59af000 r-xp /usr/lib/libopencv_calib3d.so.3.4.1
+        b59c1000         b59f1000 r-xp /usr/lib/libopencv_video.so.3.4.1
+        b59f2000         b5a65000 r-xp /usr/lib/libopencv_xfeatures2d.so.3.4.1
+        b5a77000         b5c14000 r-xp /usr/lib/libopencv_core.so.3.4.1
+        b5c2a000         b5de9000 r-xp /usr/lib/libopencv_imgproc.so.3.4.1
+        b5ea0000         b5ec8000 r-xp /usr/lib/libopencv_imgcodecs.so.3.4.1
+        b5eda000         b5f09000 r-xp /usr/lib/libzint.so.2.4.3
+        b5f27000         b6018000 r-xp /usr/lib/libstdc++.so.6.0.22
+        b6032000         b6052000 r-xp /usr/lib/libzbar.so.0.2.0
+        b6053000         b6057000 r-xp /usr/lib/libgdbm.so.3.0.0
+        b6068000         b6090000 r-xp /usr/lib/libjpeg.so.8.1.2
+        b60a1000         b60a7000 r-xp /usr/lib/libgif.so.7.0.0
+        b60b7000         b60b9000 r-xp /usr/lib/libnsbmp.so.0.0.0
+        b60c9000         b60cb000 r-xp /usr/lib/libbmp.so.0.101.2
+        b60db000         b614a000 r-xp /usr/lib/libpixman-1.so.0.32.6
+        b615f000         b617d000 r-xp /usr/lib/libpng16.so.16.21.0
+        b618e000         b6199000 r-xp /usr/lib/libwayland-server.so.0.1.0
+        b61aa000         b61b3000 r-xp /usr/lib/libwayland-client.so.0.3.0
+        b61c3000         b61cd000 r-xp /usr/lib/libdrm.so.2.4.0
+        b61de000         b61e7000 r-xp /usr/lib/libjson-c.so.4.0.0
+        b61f8000         b61fd000 r-xp /usr/lib/libffi.so.6.0.2
+        b620d000         b621f000 r-xp /usr/lib/libresolv-2.24.so
+        b6233000         b6242000 r-xp /usr/lib/libz.so.1.2.11
+        b6254000         b6256000 r-xp /usr/lib/libgmodule-2.0.so.0.5200.2
+        b6267000         b626e000 r-xp /usr/lib/libminizip.so.1.0.0
+        b627f000         b6298000 r-xp /usr/lib/libpkgmgr_parser.so.0.13.5
+        b62a9000         b62ac000 r-xp /usr/lib/libdl-2.24.so
+        b62bd000         b62dd000 r-xp /usr/lib/libsensor-genuine.so.4.0.3
+        b62de000         b62f7000 r-xp /usr/lib/libjson-glib-1.0.so.0.400.2
+        b6309000         b6312000 r-xp /usr/lib/libstorage.so.0.1
+        b6322000         b6324000 r-xp /usr/lib/libttrace.so.1.1
+        b6334000         b640a000 r-xp /usr/lib/libxml2.so.2.9.7
+        b6420000         b6423000 r-xp /usr/lib/libiniparser.so.0
+        b6433000         b64ca000 r-xp /usr/lib/libsqlite3.so.0.8.6
+        b64dc000         b64e0000 r-xp /usr/lib/libvconf.so.0.3.1
+        b64f0000         b64f5000 r-xp /usr/lib/libtzplatform-config-2.0.so.2.0.0
+        b6505000         b650a000 r-xp /usr/lib/libxdgmime.so.1.1.0
+        b651b000         b6569000 r-xp /usr/lib/libpcre.so.1.2.9
+        b6579000         b65eb000 r-xp /usr/lib/libm-2.24.so
+        b65fc000         b6658000 r-xp /usr/lib/libeina.so.1.21.99
+        b666a000         b6680000 r-xp /usr/lib/libeo.so.1.21.99
+        b6690000         b66c9000 r-xp /usr/lib/libefl.so.1.21.99
+        b66dd000         b66ec000 r-xp /usr/lib/libmv_common.so
+        b66fc000         b6717000 r-xp /usr/lib/libmv_face.so
+        b6728000         b6744000 r-xp /usr/lib/libmv_surveillance.so
+        b6755000         b6778000 r-xp /usr/lib/libmv_image.so
+        b6789000         b678f000 r-xp /usr/lib/libmv_barcode_generator.so
+        b679f000         b67a5000 r-xp /usr/lib/libmv_barcode_detector.so
+        b67b5000         b67b8000 r-xp /usr/lib/libcapi-system-info.so.0.5.1
+        b67c8000         b67ce000 r-xp /usr/lib/libmmutil_imgp.so.0.0.0
+        b67de000         b67e2000 r-xp /usr/lib/libmmutil_jpeg.so.0.0.0
+        b67f3000         b67f6000 r-xp /usr/lib/libmmutil_png.so.0.0.0
+        b6806000         b680d000 r-xp /usr/lib/libmmutil_gif.so.0.0.0
+        b681d000         b681f000 r-xp /usr/lib/libmmutil_common.so.0.0.0
+        b682f000         b6831000 r-xp /usr/lib/libmmutil_bmp.so.0.0.0
+        b6841000         b6865000 r-xp /usr/lib/libtbm.so.1.0.0
+        b6875000         b687f000 r-xp /usr/lib/libcapi-media-tool.so.0.1.9
+        b6890000         b6892000 r-xp /usr/lib/libmmfdisplay_interface.so.0.0.0
+        b68a2000         b68a7000 r-xp /usr/lib/libmuse-core.so.0.3.50
+        b68b7000         b68ba000 r-xp /usr/lib/libmuse-client.so.0.3.50
+        b68ca000         b6911000 r-xp /usr/lib/libgobject-2.0.so.0.5200.2
+        b6922000         b6a7a000 r-xp /usr/lib/libgio-2.0.so.0.5200.2
+        b6a8e000         b6aaa000 r-xp /usr/lib/libpkgmgr-info.so.0.13.5
+        b6abb000         b6ac2000 r-xp /usr/lib/libappcore-common.so.1.11.1
+        b6ad2000         b6ad7000 r-xp /usr/lib/libcapi-appfw-app-control.so.0.8.1
+        b6ae7000         b6aeb000 r-xp /usr/lib/libbundle.so.0.2.5
+        b6afb000         b6b22000 r-xp /usr/lib/libaul.so.0.10.4
+        b6b32000         b6b4a000 r-xp /usr/lib/libgcc_s.so.1
+        b6b5a000         b6c7e000 r-xp /usr/lib/libc-2.24.so
+        b6c94000         b6c9a000 r-xp /usr/lib/librt-2.24.so
+        b6cab000         b6da3000 r-xp /usr/lib/libglib-2.0.so.0.5200.2
+        b6db4000         b6dd5000 r-xp /usr/lib/libexif.so.12.3.3
+        b6df0000         b6e33000 r-xp /usr/lib/libecore.so.1.21.99
+        b6e46000         b6e4d000 r-xp /usr/lib/libdlog.so.0.0.0
+        b6e63000         b6e78000 r-xp /usr/lib/libcapi-system-peripheral-io.so.0.1.0
+        b6e89000         b6e96000 r-xp /usr/lib/libcapi-media-vision.so.0.4.3
+        b6ea6000         b6eb1000 r-xp /usr/lib/libcapi-media-image-util.so.0.1.42
+        b6ec1000         b6ed8000 r-xp /usr/lib/libcapi-media-camera.so.0.4.15
+        b6ee8000         b6ef3000 r-xp /usr/lib/libcapi-base-common.so.0.4.32
+        b6f05000         b6f08000 r-xp /usr/lib/libcapi-appfw-app-common.so.0.6.1
+        b6f18000         b6f1b000 r-xp /usr/lib/libappcore-agent.so.1.2.10
+        b6f2b000         b6f41000 r-xp /usr/lib/libpthread-2.24.so
+        b6f65000         b6f85000 r-xp /usr/lib/ld-2.24.so
+        bed26000         bed47000 rw-p [stack]
+End of Maps Information
+
+Callstack Information (PID:29799)
+Call Stack Count: 9
+ 0: gsignal + 0x9c (0xb6b85094) [/usr/lib/libc-2.24.so] + 0x2b094
+ 1: abort + 0x12c (0xb6b863f0) [/usr/lib/libc-2.24.so] + 0x2c3f0
+ 2: (0xb661a7f7) [/usr/lib/libeina.so.1.21.99] + 0x1e7f7
+ 3: eina_log_print + 0x42 (0xb661b71b) [/usr/lib/libeina.so.1.21.99] + 0x1f71b
+ 4: (0xb6e25c91) [/usr/lib/libecore.so.1.21.99] + 0x35c91
+ 5: (0xb6e2633d) [/usr/lib/libecore.so.1.21.99] + 0x3633d
+ 6: (0xb6631739) [/usr/lib/libeina.so.1.21.99] + 0x35739
+ 7: (0xb6f30f04) [/usr/lib/libpthread-2.24.so] + 0x5f04
+ 8: (0xb6c28348) [/usr/lib/libc-2.24.so] + 0xce348
+End of Call Stack

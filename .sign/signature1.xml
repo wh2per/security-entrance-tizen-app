@@ -4,11 +4,19 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>hInelV9u6beDyjNZR3nwmuuHPIUkrzgKahLK1oY7BCU=</DigestValue>
+<DigestValue>Ky+0ipjy42Za3Y48/02oELeaIyOldfCMn6Hk/tfKpS0=</DigestValue>
 </Reference>
 <Reference URI="bin%2Fsecurity-entrance-tizen-app">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>BXgmdN54k/k+28gEs0KOZFf/d0fnUQZTk2ij90OqL6g=</DigestValue>
+<DigestValue>2fGUGeYAQqGUL4T5Y8obhxH8ani1+LJV8wF7hBaMCu4=</DigestValue>
+</Reference>
+<Reference URI="res%2Fcard.jpg">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>5Xui1YDgV3W3ae8wpJ+zrWRScngWR/Ii0pP0nGHrWN0=</DigestValue>
+</Reference>
+<Reference URI="res%2Fstar.jpg">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>jlvu6oknitMRY9AgMTwW9ffAw646DNkmYWLKTsHx4hE=</DigestValue>
 </Reference>
 <Reference URI="shared%2Fres%2Fmaster.json">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -35,9 +43,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-tCOOJU2PNhkeWG9S02wtBJQSqZ47wM8CScPtN/a1b5d1xedzI6YryZKtCAt/bBd3+QIr8+HpqBMJ
-2lgaBBAdq/CbuaVfda+emE7NsYEjxykSLcGy6B6X8Mg6AOhkt9/uSxT5+5M/SnG/LnCnrm+YMoMh
-6RbQXs0GrKigac68rlE=
+UinCMR8UvW2Guy2AMIym+ad1rWkD0foanqiSGO9T+E4xVpPtc6b+mONQD7VSbO0N1/wgKboON+S8
+CGY3oBr/plLeMaOq9W6JcN8UdX+EZdPSjvdgzz1GqOixesrSxP/VAeaMsVrNWlL3ZfcJEctn8GJ9
+NwBqR3xd9Jmpn4dKQVM=
 </SignatureValue>
 <KeyInfo>
 <X509Data>
